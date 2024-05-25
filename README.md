@@ -1,6 +1,6 @@
 # compiler_project
 
-+  LRtable
++  LRtable.py
 
 CSV to dictionary (implemented)
 
