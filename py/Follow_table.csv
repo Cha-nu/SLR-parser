@@ -1,4 +1,4 @@
-﻿1,2
+1,2
 S,{$}
 CODE,{$}
 CODE',{$}
@@ -16,8 +16,6 @@ ARG,{rparen}
 MOREARGS,{rparen}
 BLOCK,"{return,rbrace}"
 STMT,"{return,vtype,id,if,while,rbrace}"
-IFSTMT,"{return,vtype,id,if,while,rbrace}"
-WHILESTMT,"{return,vtype,id,if,while,rbrace}"
 COND,{rparen}
 COND',{comp}
 ELSE,"{return,vtype,id,if,while,rbrace}"
