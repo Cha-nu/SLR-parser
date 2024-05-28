@@ -7,7 +7,7 @@ import csv
 state = 0
 
 terminals=['vtype','id','semi','assign','literal','character','boolstr','addsub','multdiv','lparen','rparen','num','lbrace','rbrace','comma','if','while','comp','else','return','$']
-nonterminals=['CODE','CODE\'','VDECL','VDECL\'','ASSIGN','RHS','EXPR','EXPR\'','TERM','TERM\'','FACTOR','FDECL','ARG','MOREARGS','BLCOK','STMT','IFSTMT','WHILESTMT','COND','COND\'','ELSE','RETURN']
+nonterminals=['CODE','CODE\'','VDECL','VDECL\'','ASSIGN','RHS','EXPR','EXPR\'','TERM','TERM\'','FACTOR','FDECL','ARG','MOREARGS','BLCOK','STMT','COND','ELSE','RETURN']
 
 ''' Be careful When changing the contents '''
 

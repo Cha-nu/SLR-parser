@@ -17,6 +17,5 @@ MOREARGS,{rparen}
 BLOCK,"{return,rbrace}"
 STMT,"{return,vtype,id,if,while,rbrace}"
 COND,{rparen}
-COND',{comp}
 ELSE,"{return,vtype,id,if,while,rbrace}"
 RETURN,{rbrace}

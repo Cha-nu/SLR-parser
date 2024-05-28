@@ -23,7 +23,7 @@ stack=[0] #states stack
 stack_str=[] #The lefthand of Indicator
 indicator=-1 
 reduce_len=[1,2,1,0,2,2,2,2,3,1,1,1,1,2,3,0,2,3,0,3,1,1,9,3,0,4,0,2,0,1,2,1,1,8,7,3,1,1,4,0,3]
-reduced_nonterminal=['S','CODE','CODE','CODE','CODE\'','VDECL','VDECL\'','VDECL\'','ASSIGN','RHS','RHS','RHS','RHS','EXPR','EXPR\'','EXPR\'','TERM','TERM\'','TERM\'','FACTOR','FACTOR','FACTOR','FDECL','ARG','ARG','MOREARGS','MOREARGS','BLOCK','BLOCK','STMT','STMT','STMT','STMT','IFSTMT','WHILESTMT','COND','COND\'','COND','ELSE','ELSE','RETURN']
+reduced_nonterminal=['S','CODE','CODE','CODE','CODE\'','VDECL','VDECL\'','VDECL\'','ASSIGN','RHS','RHS','RHS','RHS','EXPR','EXPR\'','EXPR\'','TERM','TERM\'','TERM\'','FACTOR','FACTOR','FACTOR','FDECL','ARG','ARG','MOREARGS','MOREARGS','BLOCK','BLOCK','STMT','STMT','STMT','STMT','COND','COND','ELSE','ELSE','RETURN']
 current_reduced_nonterminal=[]
 
 # input.txt에서 불러오게 선언
