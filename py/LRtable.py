@@ -1,13 +1,7 @@
 import csv
 
-# 확인을 위해 현재 작업 디렉터리를 출력
 
-# Implement LR table as a dictionary
-# state 0~85
-state = 0
-
-terminals=['vtype','id','semi','assign','literal','character','boolstr','addsub','multdiv','lparen','rparen','num','lbrace','rbrace','comma','if','while','comp','else','return','$']
-nonterminals=['CODE','CODE\'','VDECL','VDECL\'','ASSIGN','RHS','EXPR','EXPR\'','TERM','TERM\'','FACTOR','FDECL','ARG','MOREARGS','BLCOK','STMT','COND','ELSE','RETURN']
+#Transforms LR table, Goto table and Follow table into the dictionary
 
 ''' Be careful When changing the contents '''
 
@@ -35,4 +29,3 @@ for row in g:
 
 for row in e:
     Follow[row['1']] = row['2'].rstrip('}').lstrip('{').split(',')
-
