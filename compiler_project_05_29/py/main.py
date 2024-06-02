@@ -1,5 +1,7 @@
 import LRtable
 
+before_depth = 0
+
 class TreeNode:
     def __init__(self, value):
         self.value = value
@@ -9,14 +11,24 @@ class TreeNode:
         self.children.append(node)
 
     def print_tree(self, depth=0): # parsing tree 출력
-        print('    ' * depth + self.value) # 트리의 깊이 만큼 탭
+        global before_depth
+        if (depth == 0): connect = ''
+        elif(before_depth == depth): connect = '  '
+        else: connect = '└─'
+        print('   ' * depth + connect + self.value) # 트리의 깊이 만큼 탭
         for child in self.children:
             child.print_tree(depth + 1)
+        before_depth = depth
 
     def get_tree_string(self, depth=0): # output.txt에 저장할 형식
-        result = '    ' * depth + self.value + '\n'
+        global before_depth
+        if (depth == 0): connect = ''
+        elif(before_depth == depth): connect = '  '
+        else: connect = '└─'
+        result = '   ' * depth + connect + self.value + '\n'
         for child in self.children:
             result += child.get_tree_string(depth + 1)
+        before_depth = depth
         return result
 
 stack=[0] #states stack
