@@ -25,6 +25,7 @@ class TreeNode:
         if (depth == 0): connect = ''
         elif(before_depth == depth): connect = '  '
         else: connect = '└─'
+        result = '   ' * depth + connect + self.value + '\n'
         for child in self.children:
             result += child.get_tree_string(depth + 1)
         before_depth = depth
