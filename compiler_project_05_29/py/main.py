@@ -34,6 +34,7 @@ class TreeNode:
 stack=[0] #states stack
 stack_str=[] #The left-hand of Indicator(already checked)
 indicator=-1
+reject = ""
 
 # For reducing, needs to have the nonterminal to be reduced and the length of reduced tokens
 reduce_len=[1,2,1,0,2,2,2,2,3,1,1,1,1,2,3,0,2,3,0,3,1,1,9,3,0,4,0,2,0,1,2,8,7,3,1,4,0,3]
@@ -62,10 +63,8 @@ while (1):
             val=LRtable.Goto[currentstate][current_reduced_nonterminal.pop()]
             nextstate=int(val)
         except:
-            print("Goto Failed")
-            print(*stack_str, end='')
-            print(" | ", end='')
-            print(*input_tokens[indicator+1:])
+            reject = f"Goto Failed\n{' '.join(input_tokens[:indicator+1])} | \'{' '.join(input_tokens[indicator+1])}\' <= invaild token | {' '.join(input_tokens[indicator+2:])}\n"
+            print(reject)
             break
         stack.append(nextstate)
     else:
@@ -76,10 +75,8 @@ while (1):
             val=LRtable.Action[currentstate][input_tokens[indicator+1]]
             val[0] # val을 참조했을 때 공백인지 확인
         except:
-            print("Shift & Goto Failed")
-            print(*stack_str, end='')
-            print(" | ", end='')
-            print(*input_tokens[indicator+1:])
+            reject = f"Shift & Goto Failed\n{' '.join(input_tokens[:indicator+1])} | \'{' '.join(input_tokens[indicator+1])}\' <= invaild token | {' '.join(input_tokens[indicator+2:])}\n"
+            print(reject)
             break
         
         if val=="acc":
@@ -99,10 +96,8 @@ while (1):
             nextstate=int(val[1:])
             #Checks follow condition
             if not (input_tokens[indicator+1] in LRtable.Follow[reduced_nonterminal[nextstate]]):
-                print("Reduced Failed")
-                print(*stack_str, end='')
-                print(" | ", end='')
-                print(*input_tokens[indicator+1:])
+                reject = f"Reduced Failed\n{' '.join(input_tokens[:indicator+1])} | \'{' '.join(input_tokens[indicator+1])}\' <= invaild token | {' '.join(input_tokens[indicator+2:])}"
+                print(reject)
                 break
             
             children = [] # 서브트리 생성
@@ -138,15 +133,15 @@ print()
 # parsing tree output파일에 저장
 try:
     with open("output.txt", "w") as f:
-        f.write(parsing_tree.get_tree_string())
+        if(reject != ""):
+            f.write(reject)
+            print("Reject")
+        else:
+            f.write(parsing_tree.get_tree_string())
+            # parsing tree 출력
+            print("Parsing Tree")
+            parsing_tree.print_tree()
+            print("\nAccept\n")
+        print("The \"output.txt\" is updated")
 except:
-    print("Parsing tree save error")
-
-# parsing tree 출력
-try:
-    print("Parsing Tree")
-    parsing_tree.print_tree()
-except:
-    print("Parsing tree print error")
-
-print("The \"output.txt\" is updated")
+    print("Parsing Tree error")

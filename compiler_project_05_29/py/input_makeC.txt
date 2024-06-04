@@ -1,0 +1,16 @@
+int a = b + c * 2;
+int main(int x, int y) {
+    int c;
+    c = 10;
+    if (true == false) {
+        boolstr d;
+        d = boolstr;
+    } else {
+        literal e = "literal";
+    }
+   if (true == true) {}
+    while (true) {
+       char a = 'c';
+    }
+    return true;
+}
