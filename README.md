@@ -8,4 +8,4 @@ CSV to dictionary (implemented)
 
 SLR parser, Error detection (implemented)
 
-If succeedes, show a parse tree (not implemented)
+If succeedes, show a parse tree (implemented)
